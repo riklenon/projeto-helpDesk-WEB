@@ -1,0 +1,42 @@
+﻿@model ProjetoPim.Models.ApplicationUser
+
+<center><h4 style="font-size:30px"><b>Usuário</b></h4></center>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Id)
+
+<dl style="font-size:20px" class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Nome)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Nome)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Departamento)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Departamento)
+    </dd>
+    <dt>
+        Telefone
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.PhoneNumber)
+    </dd>
+</dl>
+
+    <p>Tem certeza que deseja excluir este Usuário?</p>
+    <label>
+       <input name="Sim" class="btn btn-default" type="submit" value="Sim">
+    </label>
+
+}
+

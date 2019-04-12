@@ -1,0 +1,27 @@
+﻿@model ProjetoPim.Models.Chamado
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Chamados</h2>
+
+<h3>Tem certeza que deseja cancelar este chamado?</h3>
+<div>
+    <h4>Chamado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Número
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Cancelar" class="btn btn-default" /> 
+        <a asp-action="Lista" class="btn btn-default">Sair</a>
+    </form>
+</div>

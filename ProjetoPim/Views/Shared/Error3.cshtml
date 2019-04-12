@@ -1,0 +1,21 @@
+﻿@model ProjetoPim.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">@ViewData["Title"]</h1>
+<h2 class="text-danger">@Model.Message</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+    <div>
+        <a style="background-size:10px" href="~/lib/Manual.pdf" download="Manual.pdf"><img style=" height:50px" src="~/images/BeOS_Help_book.png" />Leia o Manual !!</a>
+    </div>
+
+    <div>
+        <a class="btn btn-default" asp-controller="Chamados" asp-action="Index">Voltar</a>
+    </div>

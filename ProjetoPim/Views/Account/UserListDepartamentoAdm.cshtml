@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProjetoPim.Models.ApplicationUser>
+
+
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<script src="~/js/jquery-2.2.4.min.js"></script>
+<script src="~/js/jquery.tablesorter.js"></script>
+
+
+<h2>Usuários do Administrativo</h2>
+
+
+
+<table id="myTable" class=" table tablesorter">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Departamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="UserEdit">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Detalhar</a> |
+                <a asp-action="UserDelete" asp-route-id="@item.Id">Deletar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-default" asp-action="Departamento">Sair</a>
+</div>
+<script type="text/javascript">
+    $(".tablesorter").tablesorter();
+</script>
+

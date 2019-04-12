@@ -1,0 +1,36 @@
+﻿@model ProjetoPim.Models.Chamado
+
+@{
+    ViewData["Title"] = "Confirma";
+}
+
+<h2>Seu Chamado foi Atendido?</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Confirma">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Descricao" />
+            <input type="hidden" asp-for="IdVpn" />
+            <input type="hidden" asp-for="SenhaVpn" />
+            <input type="hidden" asp-for="Prioridade" />
+            <input type="hidden" asp-for="Status" />
+            <input type="hidden" asp-for="Assunto" />
+            <div class="form-group">
+                <h2><label asp-for="Assunto" class="control-label"></label></h2>
+                <h1>@Model.Assunto</h1>
+                <input type="hidden" asp-for="Assunto" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Confirmar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="MeusChamados">Voltar</a>
+</div>
+

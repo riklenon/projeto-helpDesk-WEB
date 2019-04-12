@@ -1,0 +1,40 @@
+﻿@model IEnumerable<ProjetoPim.Models.ApplicationUser>
+
+
+@{
+    ViewData["Title"] = "Usuários";
+}
+
+<script src="~/js/jquery-2.2.4.min.js"></script>
+<script src="~/js/jquery.tablesorter.js"></script>
+
+
+<h2>Usuários</h2>
+
+<p>
+    <a asp-action="Create">Cadastrar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

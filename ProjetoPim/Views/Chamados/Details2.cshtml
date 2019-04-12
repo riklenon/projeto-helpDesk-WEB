@@ -1,0 +1,67 @@
+﻿@model ProjetoPim.Models.Chamado
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Chamado</h2>
+
+<div>
+    <h4>Detalhado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Nº
+        </dt>
+        <dd style="margin-top: 25px">
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt style="margin-top: 25px">
+            @Html.DisplayNameFor(model => model.Assunto)
+        </dt>
+        <dd style="margin-top: 25px">
+            @Html.DisplayFor(model => model.Assunto)
+        </dd>
+        <dt style="margin-top: 25px">
+            Autor
+        </dt>
+        <dd style="margin-top: 25px">
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+        <dt style="margin-top: 25px">
+            Telefone
+        </dt>
+        <dd style="margin-top: 25px">
+            @Html.DisplayFor(model => model.User.PhoneNumber)
+        </dd>
+        <dt style="margin-top: 25px">
+            @Html.DisplayNameFor(model => model.IdVpn)
+        </dt>
+        <dd style="margin-top: 25px">
+            @Html.DisplayFor(model => model.IdVpn)
+        </dd>
+        <dt style="margin-top: 25px">
+            @Html.DisplayNameFor(model => model.SenhaVpn)
+        </dt>
+        <dd style="margin-top: 25px">
+            @Html.DisplayFor(model => model.SenhaVpn)
+        </dd>
+        <dt style="margin-top: 25px">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd style="margin-top: 25px">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt style="margin-top: 50px">
+            Descrição
+        </dt>
+    </dl>
+</div>
+<div>
+    <textarea style="margin: 50px; color:blue; background-color:azure" disabled cols="40"> @Html.DisplayFor(model => model.Descricao)</textarea>
+</div>
+<div>
+    <a class="btn btn-danger" asp-action="Desiste" asp-route-id="@Model.Id">Cancelar Atendimento</a>|
+    <a class="btn btn-success" asp-action="Finaliza" asp-route-id="@Model.Id">Finalizar</a>
+    <a class="btn btn-default" asp-action="Pendentes" asp-route-id="@Model.Id">Sair</a>
+</div>

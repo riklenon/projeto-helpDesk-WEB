@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ProjetoPim.Models.Chamado>
+
+
+@{
+    ViewData["Title"] = "Chamados";
+}
+
+<script src="~/js/jquery-2.2.4.min.js"></script>
+<script src="~/js/jquery.tablesorter.js"></script>
+
+
+<h2>Chamados</h2>
+
+<p>
+</p>
+<table id="myTable" class=" table tablesorter">
+    <thead>
+        <tr>
+            <th>
+                Nº
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Assunto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prioridade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                Autor
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Assunto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prioridade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-default" asp-action="IndexAtendimento2">Sair</a>
+    <input class="btn btn-default" type="button" value="Imprimir" onClick="window.print()" />
+
+</div>
+<script type="text/javascript">
+    $(".tablesorter").tablesorter();
+</script>
